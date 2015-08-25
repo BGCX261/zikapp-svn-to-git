@@ -1,0 +1,104 @@
+/* 
+    Document   : player
+    Created on : 19 janv. 2013, 02:59:45
+    Author     : Amine HALLILI <amine.hallili@gmail.com>
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#player
+{
+    position:fixed;
+    top: 9%;
+    width:25%;
+    height:88%;
+    vertical-align: text-top;
+    border:2px solid black;
+}
+
+#playerinner
+{
+    width: 100%;
+    height: 100%;
+}
+
+#playercontrol
+{
+    background-color: grey;
+}
+
+#volumeslide
+{
+    margin-top: 6px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    background-color: black;
+    height: 4px;
+}
+ 
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    position: relative;
+    top: 0px;
+    z-index: 1;
+    width: 11px;
+    height: 11px;
+ 
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ebf1f6), color-stop(50%,#abd3ee), color-stop(51%,#89c3eb), color-stop(100%,#d5ebfb));
+}
+
+.icondeplacer{
+    cursor: move;
+    float: left;
+}
+
+ #currentplaylist{
+     height: 28px;
+     text-align: center;
+ }
+ 
+ .currentTrack{
+     background-color: yellow;
+ }
+ 
+ #currentplaylist input{
+     height: 20px;
+     border: 1px solid white;
+     width: 100%;
+     position: relative;
+     left: -10px;
+ }
+ 
+ .spantrackinplaylist{
+     width: 230px;
+     height: 20px;
+     overflow: hidden;
+     width: 88%;
+ }
+ 
+ #playlisttracks{
+     margin-left: -0px;
+     list-style-type:none;
+     overflow: auto;
+ }
+ 
+#playlisttracks::-webkit-scrollbar{
+    display:none;
+}
+ 
+ .trackli{
+     border-bottom: 1px dotted #CCCCCC;
+     padding-bottom: 24px;
+     background-color: white;
+ }
+ .trackinplaylist
+ {
+     width: 20%;
+     overflow: hidden;
+ }
+

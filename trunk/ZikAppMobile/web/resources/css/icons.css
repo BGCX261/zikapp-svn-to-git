@@ -1,0 +1,44 @@
+#popupPanelPlayer-popup
+{
+    position: fixed;
+    top: 60%;
+}
+
+.ui-icon-my-player-play{
+     background-image: url("../img/play.png");
+}
+.ui-icon-my-player-stop{
+     background-image: url("../img/stop.png");
+}
+.ui-icon-my-player-pause{
+     background-image: url("../img/pause.png");
+}
+.ui-icon-my-player-prev{
+     background-image: url("../img/prev_track.png");
+}
+.ui-icon-my-player-next{
+     background-image: url("../img/next_track.png");
+}
+.ui-icon-my-player-forward{
+     background-image: url("../img/forward.png");
+}
+.ui-icon-my-player-backward{
+     background-image: url("../img/backward.png");
+}
+
+[class^="ui-icon-app"],
+[class*=" ui-icon-app"] {
+  margin-top: 1px;
+  background-image: url("../img/glyphicons-halflings.png");
+  background-repeat: no-repeat;
+}
+
+.ui-icon-app-play {
+  background-position: -261px -70px;
+ 
+}
+
+
+/*
+.ui-page { max-height: 150px !important; } 
+//*/

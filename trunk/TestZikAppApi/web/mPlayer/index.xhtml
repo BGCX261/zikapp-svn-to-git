@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="viewport" content="width=device-width" /> 
+        <title>mobile player</title>
+        <link rel="stylesheet" href="./player.css" type="text/css"/>
+        <script src="./js/soundmanager2-nodebug.js" />
+        <script src="./js/mPlayer.js" />
+    </head>
+    <body>
+        <a href="#" onclick="addTrack('track1','daydreamer.mp3','daydreamer');">daydreamer</a> | 
+        <a href="#" onclick="addTrack('track2','/ZikApp-war/tracks/103_-_chasing_pavements.mp3','chasing_pavements');">chasing_pavements</a> | 
+        <a href="#" onclick="addTrack('track3','/ZikApp-war/tracks/104_-_cold_shoulder.mp3','cold_shoulder');">cold_shoulder</a> | 
+        <a href="#" onclick="addTrack('track4','/ZikApp-war/tracks/105_-_crazy_for_you.mp3','crazy_for_you');">crazy_for_you</a> | 
+        <div id="mplayer">
+            <div id="tracktitle"></div>
+            <div id="cover"></div>
+            <div id="slider">
+                <span id="currenttime">00:00</span><span id="trackduration" class="pull-right">00:00</span>
+                <input id="timeslide" type="range" min="0" max="100" step="1" value="0" onchange="trackGoTo(this.value)" />
+                
+            </div>
+            <div id="playercontrol">
+                <a href="#" onclick="playPrev();">&lt;</a>
+                <a href="#" onclick="playCurrent();">play</a>
+                <a href="#" onclick="pauseTrack();">pause</a> 
+                <a href="#" onclick="stopTrack();">stop</a>
+                <a href="#" onclick="playNext();">&gt;</a>
+                <span id="specialcontrol" class="pull-right">
+                    <a href="#" >random</a>
+                    <a href="#" >all</a>
+                </span>
+            </div>
+            <div id="playlistname"></div>
+            <ul id="playlisttracks"></ul>
+        </div>
+    </body>
+</html>

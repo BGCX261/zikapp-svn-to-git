@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+   
+
+    <h:body>
+        <ui:composition template="./appLayout.xhtml">
+
+            <ui:define name="content">
+                <div class="containerh5 centered">
+                    <div class="contr"><h5>Drag and Drop your musics to 'Drop Area' (attention chaque fichier ne doit pas dépasser 10mb)</h5></div>
+                    <div class="upload_form_cont">
+                        <div id="dropBox">Drop Area
+                            <div id="imgloading"></div>
+                        </div>
+
+                        
+                        <div id="output" class="info">
+                        <div id="help" class="alert alert-info">Etat du chargement des fichiers !</div>
+                        <div id="msg"></div>
+                        </div>
+                    <h:form>
+                        <input id="file" name="file" type="file" value="#{trackController.file}" />
+                        <h:commandButton id="write" action="#" value="valider" />
+                    </h:form>
+                    </div>
+                </div>
+
+           </ui:define>
+
+        </ui:composition>
+        
+    </h:body>
+</html>

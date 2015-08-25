@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        
+        <title>Accueil</title>
+    </h:head>
+
+    <h:body>
+        
+        <div id="top">
+            <ui:insert name="top">
+                <ui:include src="./include/menubar.xhtml" />
+                <f:event type="preRenderView" listener="#{trackController.securityCheck()}" />
+            </ui:insert>
+            
+        </div>
+        
+        <ui:insert name="player">
+        <div id="player">
+            <ui:include src="audioPlayer.xhtml" />
+        </div>
+        </ui:insert>
+        
+        <div id="content">
+            <ui:insert name="content"><h1 class="alert alert-danger">aucun content n'a été définis</h1></ui:insert>
+            
+            
+        </div>
+        <div id="scripttoload">
+            <h:outputStylesheet name="bootstrap.css" library="css" />
+            <h:outputStylesheet name="player.css" library="css" />
+            <h:outputStylesheet name="popup.css" library="css" />
+            <h:outputStylesheet name="style.css" library="css" />
+            <link type="text/css" rel="stylesheet" href="/ZikApp-war/javax.faces.resource/fileupload/fileupload.css.xhtml?ln=primefaces&amp;v=3.2"></link>
+            
+            <h:outputScript name="jquery/jquery.js" library="primefaces" target="head" />
+            <h:outputScript name="bootstrap.js" library="js" />
+            <h:outputScript name="events.js" library="js" />
+            
+            <!--<h:outputScript library="js" name="fileUpload.js" target="head" />-->
+            <h:outputScript library="js" name="flipPlugin.js" />
+            <h:outputScript library="js" name="flip.js" />
+            <h:outputScript library="js" name="player.js" />
+        </div>
+        
+        <div id="footer">
+            <ui:insert name="bottom">
+                <ul class="menu">Projet réalisé par :
+                    <li>Amine HALLILI amine.hallili@gmail.com</li>
+                    <li>Régis Canioncq régis.canioncq@gmail.com</li>
+                    <li>Amine ELMALLEM elmallem.amine@gmail.com</li>
+                </ul>
+            </ui:insert>
+        </div>
+    </h:body>
+</html>

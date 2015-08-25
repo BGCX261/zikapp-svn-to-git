@@ -1,0 +1,65 @@
+
+.containerh5 {
+    width:960px;
+    /*margin:20px auto;*/
+    margin-left: auto;
+    margin-right: auto;
+}
+.contr {
+    background-color: #212121;
+    color: #FFFFFF;
+    padding: 10px 0;
+    text-align: center;
+
+    border-radius:10px 10px 0 0;
+    -moz-border-radius:10px 10px 0 0;
+    -webkit-border-radius:10px 10px 0 0;
+}
+
+
+
+.info {
+    background-color: #EEEEEE;
+    border: 1px solid #DDDDDD;
+    float: left;
+    font-weight: bold;
+    height: 300px;
+    margin: 20px;
+    position: relative;
+    width: 560px;
+    overflow: auto;
+}
+.info > div {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 15px 5px;
+}
+.info > h2 {
+    padding: 0 15px;
+}
+.info > canvas {
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+.info #url {
+    width: 400px;
+}
+#dropBox {
+    background-color: #DDDDDD;
+    border: 3px dashed #000000;
+    float: left;
+    font-size: 48px;
+    font-weight: bold;
+    height: 300px;
+    line-height: 300px;
+    margin: 20px;
+    position: relative;
+    text-align: center;
+    width: 300px;
+}
+#dropBox.hover {
+    background-color: #CCCCCC;
+}
+#dropBox.uploading {
+    background: #EEEEEE url(loading.gif) center 30% no-repeat;
+}

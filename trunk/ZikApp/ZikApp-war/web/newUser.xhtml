@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <link href="./resources/css/bootstrap.css" rel="stylesheet"/>
+    </h:head>
+    <body>
+
+        
+        <f:view>
+            <div style="position: absolute;left: 30%;width: 30%;" >
+                <h1 class="well"><h:outputText value="Inscription" /></h1>
+            </div><br /><br /><br /><br /><br /><br />
+            <h:form styleClass="well" style="position: absolute;left: 30%;width: 27%;" enctype="multipart/form-data" >
+                
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="UserName:" for="userName" />
+                    <h:inputText id="userName" value="#{trackController.user.userName}" title="UserName" />
+                    <h:outputLabel value="Password:" for="password" />
+                    <h:inputSecret id="password" value="#{trackController.user.password}" title="Password" />
+                    <h:outputLabel value="Name:" for="name" />
+                    <h:inputText id="name" value="#{trackController.user.name}" title="Name" />
+                    <h:outputLabel value="Email:" for="email" />
+                    <h:inputText id="email" value="#{trackController.user.email}" title="Email" />
+                    <h:outputLabel value="Address:" for="address" />
+                    <h:inputText id="address" value="#{trackController.user.address}" title="Address" />
+                    <h:outputLabel value="Image:" for="avatar" />
+                    <p:fileUpload id="avatar" value="#{trackController.file}" auto="true" mode="simple" />
+                    <h:commandButton value="Valider" action="#{trackController.createUser()}" />
+                    <h:commandButton value="Retour" action="index.xhtml" />
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+
+    </body>
+</html>

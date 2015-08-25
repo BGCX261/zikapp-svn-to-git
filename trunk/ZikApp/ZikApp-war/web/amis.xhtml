@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./appLayout.xhtml">
+
+            <ui:define name="content">
+                <f:view>
+                    <h:form>
+                        <h1 class="well"><h:outputText value="Mes Amis :"/></h1>
+                        <p:dataTable value="#{trackController.user.friends}" var="item">
+                            <p:column style="width: 80px;" >
+                                <h:graphicImage url="#{item.avatar}" style="width: 80px; height: 80px;" />
+                            </p:column>
+                            <p:column headerText="User Name">
+                                <h:outputText value="#{item.userName}"/>
+                            </p:column>
+                            <p:column headerText="Nom">
+                                <h:outputText value="#{item.name}"/>
+                            </p:column>
+                            <p:column headerText="Email">
+                                <h:outputText value="#{item.email}"/>
+                            </p:column>
+                            <p:column headerText="Adresse">
+                                <h:outputText value="#{item.address}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </f:view>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

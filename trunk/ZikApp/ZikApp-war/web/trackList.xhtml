@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:body>
+         
+        <ui:composition template="./appLayout.xhtml">
+
+            <ui:define name="content">
+                <f:view>
+                    <h:form id="aform">
+                        <p:growl id="messages" showDetail="true"/>
+                     
+                        <h1 class="well"><h:outputText value="Liste des morceaux"/></h1>
+                        
+                        <h:panelGroup id="dataTracks">
+                        <p:dataGrid var="track" value="#{trackController.tracks}" columns="3"  
+                            rows="12" paginator="true"  
+                            paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                            >  
+
+                            <p:panel header="#{track.title}" style="text-align:center">  
+                                    <p:graphicImage value="#{track.coverPath}"/>   
+
+                                    <h:outputText value="#{track.album}" /> <br /> 
+                                    <h:link styleClass="icon-play"         onclick="playTracks('#{track.webPath}','#{track.title}','#{track.id}');return false;" />
+                                    <h:link styleClass="icon-plus"         onclick="addTrack('#{track.webPath}','#{track.title}','#{track.id}');return false;" />
+                                    <h:commandLink styleClass="icon-wrench"       action="#{trackController.showTrack(track.id)}" />
+                                    <h:link styleClass="icon-list-alt"     onclick="showPlayLists(#{track.id});return false;"  />
+                                    <a class="icon-download-alt" href="#{track.webPath}" ></a>
+                                    <p:commandLink styleClass="icon-trash"        onclick="removeTrack($(this),#{track.id});return false;" />
+
+                                    
+                            </p:panel>  
+
+                        </p:dataGrid>  
+                        </h:panelGroup>
+                    </h:form>
+                    <div class="popup_block"></div>
+                </f:view>
+                
+            </ui:define>
+
+        </ui:composition>
+        
+    </h:body>
+</html>

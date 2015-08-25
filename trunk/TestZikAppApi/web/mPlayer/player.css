@@ -1,0 +1,115 @@
+/* 
+    Document   : style
+    Created on : 31 déc. 2012, 19:03:30
+    Author     : Amine HALLILI <amine.hallili@gmail.com>
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#mplayer { 
+    width: 99%;
+    border: 2px solid #CDCDCF;
+    background-color: #A8B8C3;
+}
+
+.pull-right{
+    float: right;
+}
+
+#playercontrol{
+    text-align: center;
+}
+
+#playercontrol a{
+    padding-left: 10px;
+}
+
+#tracktitle{
+    text-align: center;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    background-color: black;
+    height: 20px;
+    width: 99%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+ 
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    position: relative;
+    top: 0px;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+ 
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ebf1f6), color-stop(50%,#abd3ee), color-stop(51%,#89c3eb), color-stop(100%,#d5ebfb));
+}
+
+
+
+
+
+@media (max-width: 640px) {
+
+ /* passer tous les éléments de largeur fixe en largeur automatique */
+ body, element1, element2 {
+   width: auto;
+   margin: 0;
+   padding: 0;
+ }
+
+ /* fixer une largeur maximale  de 100 % aux éléments potentiellement problématiques */
+ img, table, td, blockquote, code, pre, textarea, input, iframe, object, embed, video {
+   max-width: 100%;
+ }
+/* conserver le ratio des images et empêcher les débordements de boîtes dûs aux border ou padding */
+ img {
+   height: auto; width: auto;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+ }
+
+ /* gestion des mots longs */
+ textarea, table, td, th, code, pre, samp {
+   word-wrap: break-word; /* passage à la ligne forcé */
+   -webkit-hyphens: auto; /* césure propre */
+   -moz-hyphens: auto;
+   hyphens: auto;
+ }
+ code, pre, samp {
+   white-space: pre-wrap; /* passage à la ligne spécifique pour les éléments à châsse fixe */
+ }
+
+ /* Passer à une seule colonne (à appliquer aux éléments multi-colonnes) */
+ element1, element2 {
+   float: none;
+   width: auto;
+ }
+
+ /* masquer les éléments superflus */
+ .hide_mobile {
+   display: none !important;
+ }
+
+ /* Un message personnalisé */
+ body:before {
+   content: "Version mobile du site";
+   display: block;
+   color: #777;
+   text-align: center;
+   font-style: italic;
+ }
+}
+
+@media (max-device-width:768px) and (orientation: landscape) {
+  html {
+   -webkit-text-size-adjust: 100%;
+  }
+}

@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:body>
+        <ui:composition template="./appLayout.xhtml">
+
+            <ui:define name="content">
+                
+                <f:view>
+                    <h:form>
+                        <h1><h:outputText value="Mes play lists"/></h1>
+                        <h:commandButton id="datagridrefresh" rendered="false" >
+                            <f:ajax render="mydatagrid" />
+                        </h:commandButton>
+                        <p:dataGrid value="#{trackController.playLists}" var="item" paginator="false"
+                                    widgetVar="compteTable" emptyMessage="Aucune play list n'a été trouvée !" 
+                                    id="mydatagrid">
+                            
+                            <p:panel header="#{item.name}" styleClass="PlayListButton">  
+                                
+                                <h:panelGrid columns="1" style="width:100%">  
+                                    
+                                    
+                                    
+                                    <a href="#" onclick="loadPlayList($(this).parent().parent().parent(),'#{item.name}',false);return false;"><i class="icon-play"></i></a>
+                                    <a href="#" onclick="loadPlayList($(this).parent().parent().parent(),'#{item.name}',true);return false;"><i class="icon-plus"></i></a>
+                                    <a href="#" class="showpopup icon-wrench" />
+                                    <a href="#" onclick="removePlayList($(this).parent(),#{item.id});return false;" class="icon-trash" />
+                                    <div class="popup_block">
+                                        <h1> Modification de : #{item.name} </h1><br />
+                                        <form class="formplaylistedit" >
+                                            <input value="#{item.name}" />
+                                        </form>
+                                    </div>
+                                
+                                   
+                                    <p:dataList id="mydatalist" styleClass="PlayListItems" value="#{trackController.getPlayListTracks(item)}" var="trackOrder"
+                                                 widgetVar="compteTable" >
+
+                                        <input type="hidden" name="track" value="#{trackOrder.id}" />
+                                           <h:outputText title="#{trackOrder.track.id}" value="#{trackOrder.track.title}" dir="#{trackOrder.track.webPath}" styleClass="tracktoadd" /> 
+                                           <h:outputText value=" | #{trackOrder.track.author} | #{trackOrder.track.album} | #{trackOrder.track.style}" /> 
+                                           <a href="#" class="pull-right btn" onclick="removeTrackOrder($(this),#{trackOrder.id});return false;" >
+                                               <i class="icon-trash"></i>
+                                           </a>
+                                           <a href="#" class="pull-right btn" >
+                                               <i class="icon-plus"></i>
+                                           </a>
+                                           <a href="#" class="pull-right btn" >
+                                               <i class="icon-play"></i>
+                                           </a>
+                                           
+                                    </p:dataList>
+                                </h:panelGrid> 
+                                    
+                            </p:panel>  
+                            
+                        </p:dataGrid>
+                    </h:form>
+                </f:view>
+
+
+              </ui:define>
+
+        </ui:composition>
+        
+    </h:body>
+</html>

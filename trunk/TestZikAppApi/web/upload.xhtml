@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Test d'upload</title>
+        <script src="./jquery.js" />
+        <script src="./events.js" />
+    </head>
+    <body>
+        <form enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>
+                        <label>Titre :</label>
+                    </td>
+                    <td>
+                        <input type="text" id="title"  name="title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Année :</label>
+                    </td>
+                    <td>
+                        <input type="text" id="year"   name="year"  />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Genre :</label>
+                    </td>
+                    <td>
+                        <input type="text" id="style"  name="style" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Chanteur :</label>
+                    </td>
+                    <td>
+                        <input type="text" id="author" name="author" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Album :</label>
+                    </td>
+                    <td>
+                        <input type="text" id="album"  name="album" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Morceau :</label>
+                    </td>
+                    <td>
+                        <input name="track" type="file" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Couverture :</label>
+                    </td>
+                    <td>
+                        <input name="cover" type="file" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <progress></progress><span id="loading" ></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="button" value="Upload" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        
+    </body>
+</html>

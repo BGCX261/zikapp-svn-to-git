@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <body>  
+        
+    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container" style="margin-left: 5%;">
+        <a class="brand" href="#">HALLILI</a>
+        <div class="nav-collapse collapse navbar-responsive-collapse" style="margin-left: 15%;">
+          <ul class="nav">
+            <li><h:link outcome="index.xhtml"     value="Accueil"/></li>    
+            <li><h:link rel="get" outcome="trackList"       value="Mes Morceaux"/></li>    
+            <li><h:link rel="get" outcome="playList.xhtml"  value="Mes PlayList"/></li>    
+            <li><h:link rel="get" outcome="new_edit.xhtml"  value="Uploader HTML5"/></li> 
+            <li><h:link rel="get" outcome="newTracks.xhtml" value="Uploader Primefaces"/></li> 
+            <li><h:link rel="get" outcome="amis.xhtml" value="Mes Amis"/></li> 
+          </ul>
+            
+            <!-- Recherche -->   
+        <h:form class="navbar-search">
+            <p:autoComplete id="id_search" value="#{trackController.txt1}"
+                            styleClass="search-query span2" completeMethod="#{trackController.complete}" title="Chercher un produit">
+                <p:ajax listener="#{trackController.showFilterCompte}" event="itemSelect" process="@this" />
+
+            </p:autoComplete>
+        </h:form>
+          
+          <ul class="nav pull-right" style="margin-right: 8%;">
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Compte <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                 <h:form>
+                     <li><h:link rel="get" outcome="user.xhtml" value="Apperçu"/></li> 
+                     <li><h:commandLink action="#{trackController.accountEditView()}">Modifier</h:commandLink></li>
+                     <li><h:commandLink action="#{trackController.accountEditView()}">Parametres</h:commandLink></li>
+                <li class="divider"></li>
+                <li><h:commandLink action="#{trackController.logOut()}">Déconnexion</h:commandLink></li>
+                </h:form>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div>
+    </div><!-- /navbar-inner -->
+  </div><!-- /navbar -->
+    </body>
+</html>

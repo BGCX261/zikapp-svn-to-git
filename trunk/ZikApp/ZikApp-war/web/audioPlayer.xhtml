@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:body>
+    <p:panelGrid id="playerinner">
+            <f:facet name="header">
+                <p:row>  
+                    <p:column>
+                        <div id="track">Séléctionner un morceau pour jouer</div>
+                    </p:column>
+                </p:row>  
+                        
+            </f:facet>
+            <p:row>
+                <p:column id="cover" styleClass="pager" >
+                    <h:graphicImage url="./tracks/cover.png" width="200" height="200" style="opacity:1;"/>
+                </p:column>
+            </p:row>
+            <p:row>
+                <p:column styleClass="pager">
+                    <div id="playercontrol">
+                    
+                    <h:outputLink id="btnplayall" onclick="setPlayAll(true);return false;" styleClass="icon-retweet pull-left setplayall" title="Activer la lecture de tous les morceaux" />
+                    <h:outputLink id="btnplayallw" onclick="setPlayAll(false);return false;" styleClass="icon-retweet icon-white pull-left setplayall hide" title="Désactiver la lecture de tous les morceaux" />
+                    <h:outputLink id="btnplayrandom" onclick="setPlayRandom(true);return false;" styleClass="icon-random pull-left setplayrandom" title="Activer la lecture aléatoire" />
+                    <h:outputLink id="btnplayrandomw" onclick="setPlayRandom(false);return false;" styleClass="icon-random icon-white pull-left setplayrandom hide" title="Désactiver la lecture aléatoire"/>
+                    <h:outputLink id="btnrepeat" onclick="setPlayRepeat(true);return false;" styleClass="icon-repeat pull-left setplayrepeat" title="Activer la lecture en boucle"/>
+                    <h:outputLink id="btnrepeatw" onclick="setPlayRepeat(false);return false;" styleClass="icon-repeat icon-white pull-left setplayrepeat hide" title="Désactiver la lecture en boucle"/>
+                    
+                    <h:outputLink id="btnstepprev" onclick="playPrev();return false;"  styleClass="icon-step-backward"                        title="Jouer le morceau précedent"/>
+                    <h:outputLink id="btnfastprev" onclick="playPrev();return false;"  styleClass="icon-fast-backward readingcontrol"    title="Ralentir la lecture"/>
+                    <h:outputLink id="btnplay" onclick="playTrack();return false;" styleClass="icon-play"                                 title="Jouer le morceau"/>
+                    <h:outputLink id="btnpause" onclick="pause();return false;"     styleClass="icon-pause"            title="Suspendre la lecture"/>
+                    <h:outputLink id="btnstop" onclick="stop();return false;"      styleClass="icon-stop readingcontrol"             title="Arreter la lecture"/>
+                    <h:outputLink id="btnfastnext" onclick="return false;"  styleClass="icon-fast-forward readingcontrol"     title="Accelerer la lecture"/>
+                    <h:outputLink id="btnstepnext" onclick="playNext(true);return false;"  styleClass="icon-step-forward"                         title="Jouer le morceau suivant"/>
+                    
+                    <h:outputLink styleClass="icon-volume-up pull-right" onclick="showVolume();return false;" title="Controller le niveau du son"/>
+                    <input id="volumeslide" type="range" min="0" max="100" step="1" value="80" class="pull-right span1" onchange="handleVolume(this.value);return false;" />
+                    <h:outputLink onclick="muteTrack();return false;" styleClass="icon-volume-off pull-right" title="Désactiver le son"/>
+                    </div>
+                </p:column>
+            </p:row>
+            <p:row>
+                <p:column id="timeslider" styleClass="pager">
+                    <span id="currenttime">00:00</span>
+                    <input id="timeslide" type="range" min="0" max="100" step="1" value="0" onchange="trackGoTo(this.value)" />
+                    <span id="trackduration"></span>
+                </p:column>
+            </p:row>
+            
+            <p:row>  
+                <p:column>
+                    <p:panelGrid style="width: 100%;height: 200px;">
+                        <!--<f:facet name="header">-->
+                            <p:row>  
+                                <p:column>
+                                    <div title="double click pour editer !" id="currentplaylist">
+                                        <div id="playlistmsg" class="alert alert-success">La Play list est sauvegardée !</div>
+                                        <span id="playlistlabel">Nouvelle play List</span>
+                                        <form id="playlistsubmit"><input id="playlistname" type="text" value="Nouvelle play List" /></form>
+                                        <a id="saveplaylist" href="#" class="icon-ok-sign pull-right" title="persister la play list" />
+                                    </div>
+                                </p:column>
+                            </p:row>  
+                        <!--</f:facet> -->
+                        <p:row>  
+                                <p:column>
+                                    <form id="formplaylisttracks">
+                                        <input id="inputplaylistname" name="inputplaylistname" type="hidden" value="Nouvelle Play List" />
+                                    <ul id="playlisttracks" style="width: 100%;height: 200px;"></ul>
+                                    </form>
+                                </p:column>
+                        </p:row>
+                    </p:panelGrid>
+                </p:column>
+            </p:row>
+        </p:panelGrid>
+        <audio preload="auto" autobuffer="true" autoplay="autoplay" draggabale="true" id="audio">
+            <source id="source" src="test" type="audio/mpeg" />
+        </audio>
+</h:body>
+</html>
